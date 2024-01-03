@@ -1,1 +1,1 @@
-require(soda.core)
+require("core")
