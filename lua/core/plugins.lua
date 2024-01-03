@@ -17,7 +17,7 @@ local LazyLoader = {
 function LazyLoader:get_plugins()
     local list = {}
     local full_plugin_path = vim.split(vim.fn.glob(modules_dir .. "/plugins/*.lua"), "\n")
-    
+
     -- get all plugins
     for i, v in ipairs(full_plugin_path) do
         list[#list + 1] = v:sub(#modules_dir - 6)
