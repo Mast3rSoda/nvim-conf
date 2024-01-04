@@ -1,6 +1,8 @@
 {
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
-  "nightfox": { "branch": "main", "commit": "1467688e23aa58c2efe98033c3b3d51711e0e75b" },
+  "nightfox": { "branch": "main", "commit": "34542a433e5bd03c27b6cd4570849d9cde59acf7" },
+  "nvim-treesitter": { "branch": "master", "commit": "8ae4080c5ba59d81b4e49525d4168807bc098e73" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
-  "telescope.nvim": { "branch": "master", "commit": "983460fb8cd864748311f4c7f0c8337091f24d59" }
+  "ripgrep": { "branch": "master", "commit": "2057023dc5eb2b2ab28d03d2b902f3b57ce93165" },
+  "telescope.nvim": { "branch": "master", "commit": "87e92ea31b2b61d45ad044cf7b2d9b66dad2a618" }
 }

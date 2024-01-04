@@ -6,7 +6,7 @@ local config = function()
           compile_file_suffix = "_compiled", -- Compiled file suffix
           transparent = true,     -- Disable setting background
           terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = true,    -- Non focused panes set to alternative background
+          dim_inactive = false,    -- Non focused panes set to alternative background
           module_default = true,   -- Default enable value for modules
           colorblind = {
             enable = false,        -- Enable colorblind support
@@ -19,7 +19,7 @@ local config = function()
           },
           styles = {               -- Style to be applied to different syntax groups
             comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
-            conditionals = "NONE",
+            conditionals = "italic",
             constants = "bold",
             functions = "italic",
             keywords = "italic",
@@ -38,8 +38,33 @@ local config = function()
             -- ...
           },
         },
-        palettes = {},
-        specs = {},
+        palettes = {
+            --maybe someday?
+            -- duskfox = {
+            --     comment = "#6272A4",
+            --     bg0 = "#20152B",
+            --     bg1 = "#221D38",
+            --     bg2 = "#242623",
+            --     bg3 = "#3D2E63",
+            --     bg4 = "#654099",
+            --     fg0 = "#F8F8F2",
+            --     fg1 = "#BBBBBB",
+            --     fg2 = "#B491E5",
+            --     fg3 = "#8E856E",
+            --     sel0 = "#4A021A",
+            --     sel1 = "#7A032B",
+            -- }
+        },
+        specs = {
+            -- duskfox = {
+            --     syntax = {
+
+            --     },
+            --     git = {
+                    
+            --     }
+            -- }
+        },
         groups = {},
       })
       
