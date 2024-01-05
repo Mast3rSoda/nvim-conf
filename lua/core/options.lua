@@ -50,7 +50,7 @@ local function load_options()
 		-- Do NOT adjust the following option (pumblend) if you're using transparent background
 		pumblend = 0,
 		pumheight = 15,
-        pumwidth = 15,
+		pumwidth = 15,
 		redrawtime = 1500,
 		relativenumber = true,
 		ruler = true,
@@ -76,7 +76,7 @@ local function load_options()
 		swapfile = false,
 		switchbuf = "usetab,uselast",
 		synmaxcol = 2500,
-        tabline = "xd",
+		tabline = "xd",
 		tabstop = 4,
 		termguicolors = true,
 		timeout = true,

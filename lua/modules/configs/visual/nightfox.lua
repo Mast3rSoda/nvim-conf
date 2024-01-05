@@ -21,8 +21,8 @@ local config = function()
             comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
             conditionals = "italic",
             constants = "bold",
-            functions = "italic",
-            keywords = "italic",
+            functions = "NONE",
+            keywords = "NONE",
             numbers = "NONE",
             operators = "NONE",
             strings = "NONE",
@@ -60,16 +60,16 @@ local config = function()
             --     syntax = {
 
             --     },
-            --     git = {
-                    
-            --     }
+                --     git = {
+
+                --     }
             -- }
         },
         groups = {},
       })
       
       -- setup must be called before loading
-      vim.cmd("colorscheme duskfox") 
+      vim.cmd("colorscheme nightfox") 
 end
 
 
