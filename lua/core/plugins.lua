@@ -20,10 +20,9 @@ function LazyLoader:get_plugins()
     local full_plugin_path = vim.split(vim.fn.glob(modules_dir .. "/plugins/*.lua"), "\n")
 
     -- get all plugins
-    for i, v in ipairs(full_plugin_path) do
+    for _, v in ipairs(full_plugin_path) do
         list[#list + 1] = v:sub(#modules_dir - 6)
         list[#list] = list[#list]:sub(0, #list[#list] - 4)
-
     end
 
     for _, p in ipairs(list) do
@@ -32,14 +31,13 @@ function LazyLoader:get_plugins()
             self.plugins[#self.plugins + 1] = v
         end
     end
-
 end
 
 function LazyLoader:load_lazy()
     if not vim.loop.fs_stat(lazypath) then
-        vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git",
-                       "--branch=stable", -- latest stable release
-        lazypath})
+        vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git",
+            "--branch=stable",            -- latest stable release
+            lazypath })
     end
 
     self:get_plugins()
@@ -77,8 +75,8 @@ function LazyLoader:load_lazy()
                 runtime = icons.misc.Vim,
                 source = icons.kind.StaticMethod,
                 start = icons.ui.Play,
-                list = {icons.ui_sep.BigCircle, icons.ui_sep.BigUnfilledCircle, icons.ui_sep.Square,
-                        icons.ui_sep.ChevronRight}
+                list = { icons.ui_sep.BigCircle, icons.ui_sep.BigUnfilledCircle, icons.ui_sep.Square,
+                    icons.ui_sep.ChevronRight }
             }
         },
         performance = {
@@ -87,14 +85,14 @@ function LazyLoader:load_lazy()
                 path = vim.fn.stdpath("cache") .. "/lazy/cache",
                 -- Once one of the following events triggers, caching will be disabled.
                 -- To cache all modules, set this to `{}`, but that is not recommended.
-                disable_events = {"UIEnter", "BufReadPre"},
+                disable_events = { "UIEnter", "BufReadPre" },
                 ttl = 3600 * 24 * 2 -- keep unused modules for up to 2 days
             },
-            reset_packpath = true, -- reset the package path to improve startup time
+            reset_packpath = true,  -- reset the package path to improve startup time
             rtp = {
-                reset = true, -- reset the runtime path to $VIMRUNTIME and the config directory
+                reset = true,       -- reset the runtime path to $VIMRUNTIME and the config directory
                 ---@type string[]
-                paths = {} -- add any custom paths here that you want to include in the rtp
+                paths = {}          -- add any custom paths here that you want to include in the rtp
             }
         }
     }
