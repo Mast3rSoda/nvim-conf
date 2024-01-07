@@ -31,5 +31,10 @@ return { -- Telescope
     config = require("modules.configs.tools.bufferline")
 },
 { "tiagovla/scope.nvim",
-    config =  require("modules.configs.tools.scope")}
+    config =  require("modules.configs.tools.scope")},
+    {
+        'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = {} -- this is equalent to setup({}) function
+    }
 }
