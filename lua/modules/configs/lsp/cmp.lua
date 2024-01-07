@@ -3,6 +3,12 @@ return function()
     local cmp_action = require('lsp-zero').cmp_action()
 
     cmp.setup({
+        
+        sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+    }),
+
         mapping = cmp.mapping.preset.insert({
             -- `Enter` key to confirm completion
             ['<TAB>'] = cmp.mapping.confirm({

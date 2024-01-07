@@ -45,4 +45,10 @@ return { -- Telescope
     config = require("modules.configs.tools.comment"),
     lazy = false,
 
-}}
+},
+{ 
+    "danymat/neogen", 
+    dependencies = "nvim-treesitter/nvim-treesitter", 
+    config = require("modules.configs.tools.neogen"),
+}
+}

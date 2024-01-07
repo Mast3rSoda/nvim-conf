@@ -6,6 +6,7 @@ return {
 {'hrsh7th/cmp-nvim-lsp'},
 {'hrsh7th/nvim-cmp', config = require("modules.configs.lsp.cmp")},
 {'L3MON4D3/LuaSnip', config = require("modules.configs.lsp.luasnip"), dependencies = { "rafamadriz/friendly-snippets" }},
+{"saadparwaiz1/cmp_luasnip"},
 { "rafamadriz/friendly-snippets" },
 { 
     "danymat/neogen", 
