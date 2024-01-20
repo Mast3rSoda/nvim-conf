@@ -50,5 +50,10 @@ return { -- Telescope
     "danymat/neogen", 
     dependencies = "nvim-treesitter/nvim-treesitter", 
     config = require("modules.configs.tools.neogen"),
-}
+},
+{
+    'echasnovski/mini.bufremove',
+    version = '*',
+    config = require("modules.configs.tools.bufremove"),
+},
 }

@@ -16,7 +16,7 @@ return function()
             }),
 
             -- Ctrl+Space to trigger completion menu
-            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<leader>h'] = cmp.mapping.complete(),
 
             -- Navigate between snippet placeholder
             ['<C-f>'] = cmp_action.luasnip_jump_forward(),
@@ -24,7 +24,9 @@ return function()
 
             -- Scroll up and down in the completion documentation
             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-d>'] = cmp.mapping.scroll_docs(4)
-        })
+            ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+
+        }),
     })
 end
