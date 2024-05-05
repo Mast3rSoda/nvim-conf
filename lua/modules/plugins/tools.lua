@@ -56,15 +56,15 @@ return { -- Telescope
         version = '*',
         config = require("modules.configs.tools.bufremove"),
     },
-    {
-        'nvimdev/lspsaga.nvim',
-        config = function()
-            require("modules.configs.tools.lspsaga")
-        end,
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter', -- optional
-            'nvim-tree/nvim-web-devicons', -- optional
-        }
-    },
+    -- {
+    --     'nvimdev/lspsaga.nvim',
+    --     config = function()
+    --         require("modules.configs.tools.lspsaga")
+    --     end,
+    --     dependencies = {
+    --         'nvim-treesitter/nvim-treesitter', -- optional
+    --         'nvim-tree/nvim-web-devicons', -- optional
+    --     }
+    -- },
 }
 
