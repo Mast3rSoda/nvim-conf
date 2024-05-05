@@ -24,7 +24,7 @@ return function()
         -- will set to true when fully tested, set to false will use whichever side has more space
         -- this setting will be helpful if you do not want the PUM and floating win overlap
 
-        floating_window_off_x = 120,                   -- adjust float windows x position.
+        floating_window_off_x = 1,                   -- adjust float windows x position.
         -- can be either a number or function
         floating_window_off_y = function()           -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
             local linenr = vim.api.nvim_win_get_cursor(0)[1] -- buf line number
@@ -64,11 +64,9 @@ return function()
         extra_trigger_chars = {},                 -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
         zindex = 200,                             -- by default it will be on top of all floating windows, set to <= 50 send it to bottom
 
-        padding = ' ',                            -- character to pad on left and right of signature can be ' ', or '|'  etc
+        padding = '',                            -- character to pad on left and right of signature can be ' ', or '|'  etc
 
         transparency = nil,                       -- disabled by default, allow floating win transparent value 1~100
-        shadow_blend = 36,                        -- if you using shadow as border use this set the opacity
-        shadow_guibg = 'Black',                   -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
         timer_interval = 200,                     -- default timer check interval set to lower value if you want to reduce latency
         toggle_key = '<C-k>',                     -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
         toggle_key_flip_floatwin_setting = false, -- true: toggle floating_windows: true|false setting after toggle key pressed

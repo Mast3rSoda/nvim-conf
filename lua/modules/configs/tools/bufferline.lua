@@ -25,7 +25,7 @@ return function()
             left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
             middle_mouse_command = nil, -- can be a string | function, | false see "Mouse actions"
             indicator = {
-                icon = '', -- this should be omitted if indicator style is not 'icon'
+                icon = '', --'', -- this should be omitted if indicator style is not 'icon'
                 style = 'icon'
             },
             buffer_close_icon = '󰅖',
@@ -39,10 +39,10 @@ return function()
             truncate_names = true, -- whether or not tab names should be truncated
             tab_size = 18,
             diagnostics = "nvim_lsp",
-            diagnostics_update_in_insert = false,
+            diagnostics_update_in_insert = true,
             offsets = {{
                 filetype = "NvimTree",
-                text = "File Explorer",
+                text = "Ayy lmao",
                 text_align = "center",
                 separator = true
             }},
@@ -66,7 +66,7 @@ return function()
             move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
             -- can also be a table containing 2 custom separators
             -- [focused and unfocused]. eg: { '|', '|' }
-            separator_style = {" ", " "},
+            separator_style = {"| ", "| "},
             enforce_regular_tabs = false,
             always_show_bufferline = true,
             hover = {
