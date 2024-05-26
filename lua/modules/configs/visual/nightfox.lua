@@ -1,23 +1,25 @@
 local config = function()
+    local color = require('nightfox.lib.color')
+    local Shade = require("nightfox.lib.shade")
     require('nightfox').setup({
         options = {
             -- Compiled file's destination location
             compile_path = vim.fn.stdpath("cache") .. "/nightfox",
             compile_file_suffix = "_compiled", -- Compiled file suffix
-            transparent = true,              -- Disable setting background
-            terminal_colors = true,          -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-            dim_inactive = false,            -- Non focused panes set to alternative background
-            module_default = true,           -- Default enable value for modules
+            transparent = true,                -- Disable setting background
+            terminal_colors = true,            -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+            dim_inactive = false,              -- Non focused panes set to alternative background
+            module_default = true,             -- Default enable value for modules
             colorblind = {
-                enable = false,              -- Enable colorblind support
-                simulate_only = false,       -- Only show simulated colorblind colors and not diff shifted
+                enable = false,                -- Enable colorblind support
+                simulate_only = false,         -- Only show simulated colorblind colors and not diff shifted
                 severity = {
-                    protan = 0,              -- Severity [0,1] for protan (red)
-                    deutan = 0,              -- Severity [0,1] for deutan (green)
-                    tritan = 0,              -- Severity [0,1] for tritan (blue)
+                    protan = 0,                -- Severity [0,1] for protan (red)
+                    deutan = 0,                -- Severity [0,1] for deutan (green)
+                    tritan = 0,                -- Severity [0,1] for tritan (blue)
                 },
             },
-            styles = {           -- Style to be applied to different syntax groups
+            styles = {               -- Style to be applied to different syntax groups
                 comments = "italic", -- Value is any valid attr-list value `:help attr-list`
                 conditionals = "italic",
                 constants = "bold",
@@ -54,6 +56,30 @@ local config = function()
             --     sel0 = "#4A021A",
             --     sel1 = "#7A032B",
             -- }
+            nightfox = {
+                -- black = Shade.new("#080305", "#6f475a", -0.15),
+                red = Shade.new("#FF9B9B", 0.10, -0.15),
+                green = Shade.new("#8FBFC7", "#698D92", -0.15),
+                yellow = Shade.new("#D19F4C", "#E8B154", -0.15),
+                blue = Shade.new("#AE4A7E", "#B7266B", -0.15),
+                magenta = Shade.new("#981F59", "#CB4B72", -0.15),
+                cyan = Shade.new("#C35087", "#DC5A98", -0.15),
+                white = Shade.new("#BD819E", "#DAB6C7", -0.15),
+                orange = Shade.new("#EBAE6F", "#EB8D2B", -0.15),
+                pink = Shade.new("#0D4A5B", "#126B83", -0.15),
+                comment = "#715E66",
+                bg0 = "#000000",
+                bg1 = "#080305",
+                bg2 = "#230D16",
+                bg3 = "#3C1626",
+                bg4 = "#DDA3BB",
+                fg0 = "#EBD0DC",
+                fg1 = "#D0B8C3",
+                fg2 = "#CCAABA",
+                fg3 = "#AB7E93",
+                sel0 = "#3A1021",
+                sel1 = "#4E2B3C",
+            }
         },
         specs = {
             -- duskfox = {
