@@ -33,5 +33,6 @@ return { {
     },
     {
         "onsails/lspkind.nvim",
+        config = require("modules.configs.visual.lspkind")
     }
 }

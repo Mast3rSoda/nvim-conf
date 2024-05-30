@@ -1,5 +1,4 @@
 local config = function()
-    local color = require('nightfox.lib.color')
     local Shade = require("nightfox.lib.shade")
     require('nightfox').setup({
         options = {
@@ -60,26 +59,27 @@ local config = function()
                 -- black = Shade.new("#080305", "#6f475a", -0.15),
                 red = Shade.new("#FA7D63", "#6E58B2", -0.15), --return, error, bright interfaces
                 -- btw #CD365E is a really nice color, no idea where to put it tho
+                -- sel1 is the spot
                 green = Shade.new("#8FBFC7", "#698D92", -0.15), -- strings
                 yellow = Shade.new("#EBAE6F", "#E8B154", -0.15), -- structs
                 blue = Shade.new("#AE4A7E", "#BF1D6B", -0.15), -- struct fields, bright methods
                 magenta = Shade.new("#981F59", "#CB4B72", -0.15), -- type (word), bright if
                 cyan = Shade.new("#C35087", "#DC5A98", -0.15), -- bright types
                 white = Shade.new("#EBC0D4", "#FFDEEE", -0.15), -- text
-                orange = Shade.new("#DD9041", "#D36C00", -0.15), -- numbers, bright constants
+                orange = Shade.new("#DD9041", "#D36C00", -0.15), -- numbers, bright constants/enumMembers
                 pink = Shade.new("#0D4A5B", "#126B83", -0.15), -- import/package
                 comment = "#715E66",
                 bg0 = "#000000",
                 bg1 = "#080305",
                 bg2 = "#230D16",
-                bg3 = "#3C1626",
+                bg3 = "#330C1F", -- indents and nvimtree highlight
                 bg4 = "#DDA3BB",
                 fg0 = "#EBD0DC",
-                fg1 = "#D0B8C3",
-                fg2 = "#EBC0D4", -- brackets etc
+                fg1 = "#EBC0D4", -- nvvimTree fileNames etc. set the same as white
+                fg2 = "#EBC0D4", -- brackets etc.
                 fg3 = "#AB7E93",
                 sel0 = "#3A1021",
-                sel1 = "#4E2B3C",
+                sel1 = "#CD365E", -- active parameter highlight
             }
         },
         specs = {
