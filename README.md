@@ -1,6 +1,6 @@
 # My neovim config
 
-Yeah, not much, but I've started 4 days ago with no prior Lua knowledge.
+Feel free to grab and install the whole thing, but I highly recommend to go through it and customize it as you like. Most configs have been created and (if not customized by me) at least filled with the default settings.
 
 Based loosely on:
 
