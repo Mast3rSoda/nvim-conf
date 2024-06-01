@@ -5,9 +5,12 @@ return { -- Telescope
         cmd = "Telescope",
         module = 'telescope',
         config = require("modules.configs.tools.telescope"),
-        dependencies = { 'nvim-lua/plenary.nvim', "nvim-tree/nvim-web-devicons" }
-    },                  -- RipGrep
-    { 'BurntSushi/ripgrep' }, -- TreeSitter
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'BurntSushi/ripgrep'
+            -- "nvim-tree/nvim-web-devicons"
+        }
+    },
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
@@ -16,19 +19,26 @@ return { -- Telescope
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+        },
         config = require("modules.configs.tools.harpoon")
     },
-    { "ThePrimeagen/git-worktree.nvim" },
     {
         "lewis6991/gitsigns.nvim",
-        config = require("modules.configs.tools.gitsigns")
+        event = "VeryLazy",
+        config = require("modules.configs.tools.gitsigns"),
     },
-    { "tpope/vim-fugitive" },
     {
-        'akinsho/bufferline.nvim',
+        "tpope/vim-fugitive"
+    },
+    {
+        "akinsho/bufferline.nvim",
         version = "*",
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
         config = require("modules.configs.tools.bufferline")
     },
     {
@@ -36,12 +46,12 @@ return { -- Telescope
         config = require("modules.configs.tools.scope")
     },
     {
-        'windwp/nvim-autopairs',
+        "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = {} -- this is equalent to setup({}) function
     },
     {
-        'numToStr/Comment.nvim',
+        "numToStr/Comment.nvim",
         config = require("modules.configs.tools.comment"),
         lazy = false,
 
@@ -67,4 +77,3 @@ return { -- Telescope
     --     }
     -- },
 }
-

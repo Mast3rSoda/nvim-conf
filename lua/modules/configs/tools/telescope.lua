@@ -1,4 +1,50 @@
 return function()
+    require("telescope").setup {
+        defaults = {
+
+            mappings = {
+
+            }
+        },
+        pickers = {
+            -- default is good enough
+            -- find_files = {
+            --     theme = "ivy",
+            -- },
+            -- git_files = {
+            --     theme = "ivy",
+            --
+            -- },
+            -- buffers = {
+            --     theme = "dropdown",
+            --
+            -- },
+            -- grep_string = {
+            --     theme = "dropdown",
+            --
+            -- },
+            -- live_grep = {
+            --     theme = "dropdown",
+            --
+            -- },
+            -- git_bcommits = {
+            --     theme = "ivy",
+            --
+            -- },
+            -- git_commits = {
+            --     theme = "ivy",
+            --
+            -- },
+            -- git_commits_range = {
+            --     theme = "ivy",
+            -- },
+        },
+        extensions = {
+
+        },
+    }
+
+    -- keybinds
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
     vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
@@ -18,4 +64,13 @@ return function()
     end)
 
     vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
+
+    vim.keymap.set('n', '<leader>lc', builtin.git_commits, {})
+    vim.keymap.set('n', '<leader>bc', builtin.git_bcommits, {})
+    vim.keymap.set('v', '<leader>bc', function()
+        local vstart = vim.fn.getpos("'<")
+        local vend = vim.fn.getpos("'>")
+
+        builtin.git_bcommits_range(vstart, vend)
+    end)
 end

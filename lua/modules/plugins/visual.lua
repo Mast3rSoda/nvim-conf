@@ -34,5 +34,10 @@ return { {
     {
         "onsails/lspkind.nvim",
         config = require("modules.configs.visual.lspkind")
+    },
+    {
+        "nvim-tree/nvim-web-devicons",
+        config = require("modules.configs.visual.webdevicons")
     }
+
 }
