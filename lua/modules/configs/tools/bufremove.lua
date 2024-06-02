@@ -10,5 +10,5 @@ return function()
 
     vim.keymap.set("n", "<leader>d", function()
         bufrem.delete()
-    end )
+    end)
 end

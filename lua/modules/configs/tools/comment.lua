@@ -8,6 +8,10 @@ return function()
             above = "<leader>ca",
             below = "<leader>cu",
             eol = "<leader>ce",
+        },
+        mappings = {
+            basic = true,
+            extra = true,
         }
     })
 

@@ -39,10 +39,12 @@ return { -- Telescope
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
+        event = "VeryLazy",
         config = require("modules.configs.tools.bufferline")
     },
     {
         "tiagovla/scope.nvim",
+        lazy = false,
         config = require("modules.configs.tools.scope")
     },
     {
@@ -53,8 +55,7 @@ return { -- Telescope
     {
         "numToStr/Comment.nvim",
         config = require("modules.configs.tools.comment"),
-        lazy = false,
-
+        event = "BufEnter"
     },
     {
         "danymat/neogen",
