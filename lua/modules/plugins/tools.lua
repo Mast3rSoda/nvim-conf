@@ -71,6 +71,12 @@ return { -- Telescope
         event = "BufAdd",
         config = require("modules.configs.tools.bufremove"),
     },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = "VeryLazy",
+        config = require("modules.configs.tools.trouble")
+    },
     -- {
     --     'nvimdev/lspsaga.nvim',
     --     config = function()

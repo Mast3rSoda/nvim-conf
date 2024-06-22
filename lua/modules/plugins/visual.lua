@@ -17,7 +17,6 @@ return {
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
-        lazy = false,
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
@@ -27,11 +26,6 @@ return {
         'nvim-lualine/lualine.nvim',
         config = require("modules.configs.visual.lualine"),
         dependencies = { 'nvim-tree/nvim-web-devicons' }
-    },
-    {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = require("modules.configs.visual.trouble")
     },
     {
         "onsails/lspkind.nvim",
