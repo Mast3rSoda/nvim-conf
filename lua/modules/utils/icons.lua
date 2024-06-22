@@ -9,7 +9,7 @@ local data = {
         Enum = "",
         EnumMember = "",
         Event = "",
-        Field = "󰇽",
+        Field = "",
         File = "󰈙",
         Folder = "󰉋",
         Fragment = "",
@@ -28,7 +28,7 @@ local data = {
         Snippet = "",
         Struct = "",
         Text = "󰉿",
-        TypeParameter = "󰅲",
+        TypeParameter = "",
         Undefined = "",
         Unit = "",
         Value = "󰎠",
@@ -67,8 +67,8 @@ local data = {
         Rename = "",
         Repo = "",
         Unmerged = "󰘬",
-        Untracked = "󰞋",
-        Unstaged = "",
+        Untracked = "󱋽", -- "󱦾", -- get it? a truck with a cross? unTRUCKED? :^)
+        Unstaged = "", --"",
         Staged = "",
         Conflict = ""
     },
@@ -94,6 +94,7 @@ local data = {
         EmptyFolder = "",
         EmptyFolderOpen = "",
         File = "󰈤",
+        Filter = "",
         Fire = "",
         Folder = "",
         FolderOpen = "",
@@ -101,6 +102,10 @@ local data = {
         Gear = "",
         History = "󰄉",
         Incoming = "󰏷",
+        IndentBottom = "─",
+        IndentCorner = "└",
+        IndentEdge = "│",
+        IndentMiddle = "├",
         Indicator = "",
         Keyboard = "",
         Left = "",
@@ -204,6 +209,7 @@ local data = {
         Stopped = "",
         Terminate = "󰝤"
     }
+
 }
 
 ---Get a specific icon set.

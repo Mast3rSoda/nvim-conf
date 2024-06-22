@@ -14,6 +14,7 @@ return { -- Telescope
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        event = "BufAdd",
         config = require("modules.configs.tools.treesitter")
     },
     {
@@ -27,11 +28,12 @@ return { -- Telescope
     },
     {
         "lewis6991/gitsigns.nvim",
-        event = "VeryLazy",
+        event = "BufAdd",
         config = require("modules.configs.tools.gitsigns"),
     },
     {
-        "tpope/vim-fugitive"
+        "tpope/vim-fugitive",
+        event = "VeryLazy",
     },
     {
         "akinsho/bufferline.nvim",
@@ -44,7 +46,7 @@ return { -- Telescope
     },
     {
         "tiagovla/scope.nvim",
-        lazy = false,
+        event = "VeryLazy",
         config = require("modules.configs.tools.scope")
     },
     {
@@ -54,17 +56,19 @@ return { -- Telescope
     },
     {
         "numToStr/Comment.nvim",
+        event = "BufEnter",
         config = require("modules.configs.tools.comment"),
-        event = "BufEnter"
     },
     {
         "danymat/neogen",
         dependencies = "nvim-treesitter/nvim-treesitter",
+        event = "BufAdd",
         config = require("modules.configs.tools.neogen"),
     },
     {
         'echasnovski/mini.bufremove',
         version = '*',
+        event = "BufAdd",
         config = require("modules.configs.tools.bufremove"),
     },
     -- {

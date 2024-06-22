@@ -10,46 +10,31 @@ return {
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
-        config = require("modules.configs.lsp.lsp-z"),
         dependencies = {
             'neovim/nvim-lspconfig'
         },
+        config = require("modules.configs.lsp.lsp-z"),
     },
     {
         'hrsh7th/nvim-cmp',
-        config = require("modules.configs.lsp.cmp"),
+        event = "BufAdd",
         dependencies =
         {
             "onsails/lspkind.nvim",
             "saadparwaiz1/cmp_luasnip",
             'hrsh7th/cmp-nvim-lsp'
         },
-        -- event = "InsertEnter",
-        event = "VeryLazy",
+        config = require("modules.configs.lsp.cmp"),
     },
     {
         'L3MON4D3/LuaSnip',
-        event = "VeryLazy",
-        config = require("modules.configs.lsp.luasnip"),
+        event = "BufAdd",
         dependencies = { "rafamadriz/friendly-snippets" },
-        lazy = true
+        config = require("modules.configs.lsp.luasnip"),
     },
-    {
-        "danymat/neogen",
-        event = "VeryLazy",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        config = true,
-        -- Uncomment next line if you want to follow only stable versions
-        -- version = "*"
-    },
-    -- { "dense-analysis/ale",
-    --     config = function()
-
-    --     end }
-
     {
         "ray-x/lsp_signature.nvim",
-        event = "VeryLazy",
+        event = "InsertEnter",
         config = require("modules.configs.lsp.lsp_signature"),
     },
 }

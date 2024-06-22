@@ -1,9 +1,11 @@
-return { {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = require("modules.configs.visual.catpuccin")
-},
+return {
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = require("modules.configs.visual.catpuccin"),
+        enabled = false
+    },
     {
         "EdenEast/nightfox.nvim",
         name = "nightfox",
@@ -33,10 +35,12 @@ return { {
     },
     {
         "onsails/lspkind.nvim",
-        config = require("modules.configs.visual.lspkind")
+        lazy = true,
+        config = require("modules.configs.visual.lsp-kind")
     },
     {
         "nvim-tree/nvim-web-devicons",
+        lazy = true,
         config = require("modules.configs.visual.webdevicons")
     }
 
