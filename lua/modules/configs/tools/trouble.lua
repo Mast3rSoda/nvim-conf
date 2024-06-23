@@ -154,7 +154,7 @@ return function()
             b = { -- example of a custom action that toggles the active view filter
                 action = function(view)
                     view:filter(
-                        { buf = 1 },
+                        { buf = 0 },
                         {
                             id = "buffer",
                             toggle = true,
