@@ -19,7 +19,7 @@ local config = function()
                 },
             },
             styles = {               -- Style to be applied to different syntax groups
-                comments = "italic", -- Value is any valid attr-list value `:help attr-list`
+                comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
                 conditionals = "italic",
                 constants = "bold",
                 functions = "NONE",
