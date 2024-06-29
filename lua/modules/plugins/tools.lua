@@ -4,12 +4,12 @@ return { -- Telescope
         lazy = false,
         cmd = "Telescope",
         module = 'telescope',
-        config = require("modules.configs.tools.telescope"),
         dependencies = {
             'nvim-lua/plenary.nvim',
             'BurntSushi/ripgrep'
             -- "nvim-tree/nvim-web-devicons"
-        }
+        },
+        config = require("modules.configs.tools.telescope"),
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -77,6 +77,16 @@ return { -- Telescope
         event = "VeryLazy",
         config = require("modules.configs.tools.trouble")
     },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = {
+            "BurntSushi/ripgrep",
+            "nvim-telescope/telescope.nvim",
+        },
+        event = "VeryLazy",
+        config = require("modules.configs.tools.todo")
+
+    }
     -- {
     --     'nvimdev/lspsaga.nvim',
     --     config = function()
