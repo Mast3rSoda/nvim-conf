@@ -1,6 +1,5 @@
 return function()
     local lspSign = require("lsp_signature")
-
     lspSign.setup({
         debug = false,                                              -- set to true to enable debug logging
         log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log", -- log dir when debug is on
@@ -19,29 +18,27 @@ return function()
         -- the value need >= 40
         wrap = true,                           -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
         floating_window = true,                -- show hint in a floating window, set to false for virtual text only mode
-
         floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
         -- will set to true when fully tested, set to false will use whichever side has more space
         -- this setting will be helpful if you do not want the PUM and floating win overlap
 
-        floating_window_off_x = 1,                   -- adjust float windows x position.
+        floating_window_off_x = 1,               -- adjust float windows x position.
+        -- ohh.. basically, you need the neg pumheight to set the correct distance above text
+        -- I'm happy with how it looks in default, so commenting this out
         -- can be either a number or function
-        floating_window_off_y = function()           -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
-            local pumheight = vim.o.pumheight
-            local winline = vim.fn.winline()         -- line number in the window
-            local winheight = vim.fn.winheight(0)
-
-            -- window top
-            if winline - 1 < pumheight then
-                return pumheight
-            end
-
-            -- window bottom
-            if winheight - winline < pumheight then
-                return -pumheight
-            end
-            return 0
-        end, -- adjust float windows y position. e.g -2 move window up 2 lines; 2 move down 2 lines
+        -- floating_window_off_y = function()       -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
+        --     local winline = vim.fn.winline() - 1 -- line number in the window
+        --     local winheight = vim.fn.winheight(0) / 2
+        --
+        --     -- window top
+        --     if winline <= winheight then
+        --         return 1
+        --     else
+        --         -- window bottom
+        --         assert()
+        --         return -1
+        --     end
+        -- end, -- adjust float windows y position. e.g -2 move window up 2 lines; 2 move down 2 lines
         -- can be either number or function, see examples
 
         close_timeout = 500, -- close floating window after ms when laster parameter is entered
@@ -54,7 +51,8 @@ return function()
         -- return 'right_align' to display hint right aligned in the current line
         hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
         handler_opts = {
-            border = "rounded" --{ "╭", "─", "╮", "│", "╯", "─", "╰", "│" } -- double, rounded, single, shadow, none, or a table of borders
+            border =
+            "rounded"                                 --{ "╭", "─", "╮", "│", "╯", "─", "╰", "│" } -- double, rounded, single, shadow, none, or a table of borders
         },
 
         always_trigger = false,                   -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
@@ -63,7 +61,7 @@ return function()
         extra_trigger_chars = {},                 -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
         zindex = 200,                             -- by default it will be on top of all floating windows, set to <= 50 send it to bottom
 
-        padding = '',                            -- character to pad on left and right of signature can be ' ', or '|'  etc
+        padding = '',                             -- character to pad on left and right of signature can be ' ', or '|'  etc
 
         transparency = nil,                       -- disabled by default, allow floating win transparent value 1~100
         timer_interval = 200,                     -- default timer check interval set to lower value if you want to reduce latency
