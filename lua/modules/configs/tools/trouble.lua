@@ -56,23 +56,42 @@
 -- })
 -- end
 
+local M = {}
+
+function M:toggle_window(mode, trouble)
+    local view = trouble._find_last(mode, nil)
+    if view == nil or next(view) == nil then
+        local v = trouble.open(mode)
+        v:wait(function()
+            M[mode] = vim.api.nvim_get_current_buf()
+        end)
+        return
+    elseif M[mode] == vim.api.nvim_get_current_buf() then
+        trouble.close(mode)
+    else
+        trouble.open(mode)
+    end
+end
+
 return function()
     local uiIcons = require("modules.utils.icons").get("ui", true)
     local typeIcons = require("modules.utils.icons").get("type", true)
     local kindIcons = require("modules.utils.icons").get("kind", true)
 
+    local trouble = require("trouble")
+
     vim.keymap.set("n", "<leader>q", function()
-        require("trouble").toggle("lsp")
+        M:toggle_window("lsp", trouble)
     end)
     vim.keymap.set("n", "<leader>w", function()
-        require("trouble").toggle("lsp_document_symbols")
+        M:toggle_window("lsp_document_symbols", trouble)
     end)
     vim.keymap.set("n", "<leader>e", function()
-        require("trouble").toggle("diagnostics")
+        M:toggle_window("diagnostics", trouble)
     end)
 
 
-    require("trouble").setup({
+    trouble.setup({
 
         auto_close = false,     -- auto close when there are no items
         auto_open = false,      -- auto open when there are items

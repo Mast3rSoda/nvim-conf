@@ -47,7 +47,7 @@ return function()
         root_dirs = {},
         prefer_startup_root = false,
         sync_root_with_cwd = true,
-        reload_on_bufenter = false,
+        reload_on_bufenter = true,
         respect_buf_cwd = false,
         select_prompts = false,
         sort = {
