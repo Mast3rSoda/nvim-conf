@@ -17,7 +17,7 @@ return {
     },
     {
         'hrsh7th/nvim-cmp',
-        event = "BufAdd",
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies =
         {
             "onsails/lspkind.nvim",
@@ -30,7 +30,7 @@ return {
         'L3MON4D3/LuaSnip',
         event = "BufAdd",
         dependencies = { "rafamadriz/friendly-snippets" },
-        config = require("modules.configs.lsp.luasnip"),
+        config = require("modules.configs.lsp.lua_snip"),
     },
     {
         "ray-x/lsp_signature.nvim",

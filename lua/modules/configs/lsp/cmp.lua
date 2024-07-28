@@ -3,21 +3,28 @@ return function()
     local cmp_action = require('lsp-zero').cmp_action()
 
     cmp.setup({
-        view = {
-            entries = "custom"
-        },
+        enabled = function()
+            -- disable completion in comments
+            local context = require 'cmp.config.context'
+            -- keep command mode completion enabled when cursor is in a comment
+            if vim.api.nvim_get_mode().mode == 'c' then
+                return true
+            else
+                return not context.in_treesitter_capture("comment")
+                    and not context.in_syntax_group("Comment")
+            end
+        end,
 
-        sources = cmp.config.sources({
-            { name = 'path' },
-            { name = 'nvim_lsp' },
-            { name = 'buffer' },
-            { name = 'luasnip' },
-        }),
+        -- performance = {
+        -- },
+
+        preselect = cmp.PreselectMode.Item,
 
         mapping = cmp.mapping.preset.insert({
             -- `Enter` key to confirm completion
             ['<TAB>'] = cmp.mapping.confirm({
-                select = true
+                select = true,
+                behavior = cmp.ConfirmBehavior.Insert,
             }),
 
             -- Ctrl+Space to trigger completion menu
@@ -33,6 +40,58 @@ return function()
 
 
         }),
+
+        snippet = {
+            expand = function(args)
+                ---@diagnostic disable-next-line: undefined-field
+                require("luasnip").lsp_expand(args.body)
+            end,
+        },
+
+        completion = {
+            keyword_length = 1,
+            autocomplete = {
+                cmp.TriggerEvent.TextChanged,
+                cmp.TriggerEvent.InsertEnter
+            },
+            completeopt = "menu,menuone,preview"
+        },
+
+        formatting = {
+            fields = { "kind", "abbr", "menu" },
+            format = function(entry, vim_item)
+                local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                kind.kind = " " .. (strings[1] or "") .. " "
+                kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+                return kind
+            end,
+        },
+
+        sources = cmp.config.sources({
+                { name = 'nvim_lsp' },
+                -- { name = 'vsnip' }, -- For vsnip users.
+                { name = 'luasnip' }, -- For luasnip users.
+                -- { name = 'snippy' }, -- For snippy users.
+                -- { name = 'ultisnips' }, -- For ultisnips users.
+            },
+            {
+                { name = 'buffer' },
+            }),
+
+        view = {
+            docs = {
+                auto_open = 'true',
+            },
+            entries = {
+                name = "custom",
+                selection_order = 'near_cursor',
+                follow_cursor = 'false',
+            }
+        },
+
+
         window = {
             completion = {
                 border = 'rounded',
@@ -45,17 +104,6 @@ return function()
                 scrollbar = '║',
                 -- other options
             },
-        },
-        formatting = {
-            fields = { "kind", "abbr", "menu" },
-            format = function(entry, vim_item)
-                local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-                local strings = vim.split(kind.kind, "%s", { trimempty = true })
-                kind.kind = " " .. (strings[1] or "") .. " "
-                kind.menu = "    (" .. (strings[2] or "") .. ")"
-
-                return kind
-            end,
         },
         experimental = {
             ghost_text = true,
