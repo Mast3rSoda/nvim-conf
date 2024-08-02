@@ -110,6 +110,11 @@ return function()
         }
     })
 
+    cmp.event:on(
+        'confirm_done',
+        require('nvim-autopairs.completion.cmp').on_confirm_done()
+    )
+
     -- Customization for Pmenu
     vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#330C1F", fg = "NONE" })
     vim.api.nvim_set_hl(0, "Pmenu", { fg = "#EBC0D4", bg = "#150B0F" })
