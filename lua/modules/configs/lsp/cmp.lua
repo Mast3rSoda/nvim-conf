@@ -70,15 +70,14 @@ return function()
         },
 
         sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                -- { name = 'vsnip' }, -- For vsnip users.
-                { name = 'luasnip' }, -- For luasnip users.
-                -- { name = 'snippy' }, -- For snippy users.
-                -- { name = 'ultisnips' }, -- For ultisnips users.
-            },
-            {
-                { name = 'buffer' },
-            }),
+            { name = 'nvim_lsp' },
+            { name = 'buffer' },
+            -- { name = 'vsnip' }, -- For vsnip users.
+            { name = 'luasnip' }, -- For luasnip users.
+            -- { name = 'snippy' }, -- For snippy users.
+            -- { name = 'ultisnips' }, -- For ultisnips users.
+        }
+        ),
 
         view = {
             docs = {
@@ -86,8 +85,9 @@ return function()
             },
             entries = {
                 name = "custom",
-                selection_order = 'near_cursor',
+                selection_order = 'top_down',
                 follow_cursor = 'false',
+
             }
         },
 
