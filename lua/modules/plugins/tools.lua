@@ -52,7 +52,7 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = {} -- this is equalent to setup({}) function
+        config = true -- this is equalent to setup({}) function
     },
     {
         "numToStr/Comment.nvim",
