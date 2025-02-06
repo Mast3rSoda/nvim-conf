@@ -20,26 +20,67 @@ return function()
 
         preselect = cmp.PreselectMode.Item,
 
-        mapping = cmp.mapping.preset.insert({
-            -- `Enter` key to confirm completion
-            ['<TAB>'] = cmp.mapping.confirm({
-                select = true,
-                behavior = cmp.ConfirmBehavior.Insert,
+        -- mapping = cmp.mapping.preset.insert({
+        --     -- `Enter` key to confirm completion
+        --     ['<TAB>'] = cmp.mapping.confirm({
+        --         select = true,
+        --         behavior = cmp.ConfirmBehavior.Insert,
+        --     }),
+        --
+        --     -- Ctrl+Space to trigger completion menu
+        --     ['<leader>h'] = cmp.mapping.complete(),
+        --
+        --     -- Navigate between snippet placeholder
+        --     ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        --     ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        --
+        --     -- Scroll up and down in the completion documentation
+        --     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        --     ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        --
+        --
+        -- }),
+
+        mapping = {
+            ['<TAB>'] = cmp.mapping({
+                i = cmp.mapping.confirm({
+                    select = true,
+                    behavior = cmp.ConfirmBehavior.Insert,
+                }),
             }),
+            -- NOTE: ok, for some reason, after updating cmp
+            --                   leader mappings stopped working. This is now
+            --                   being mapped at the end.
+            -- ['<leader>h'] = cmp.mapping({
+            --     i = cmp.mapping.complete({
+            --         config = {
+            --             sources = {
+            --                 { name = 'nvim_lsp' },
+            --                 { name = 'buffer' },
+            --                 -- { name = 'vsnip' }, -- For vsnip users.
+            --                 { name = 'luasnip' }, -- For luasnip users.
+            --                 -- { name = 'snippy' }, -- For snippy users.
+            --                 -- { name = 'ultisnips' }, -- For ultisnips users.
+            --             }
+            --         }
+            --
+            --     })
+            -- }),
+            ['<C-f>'] = cmp.mapping({
+                i = cmp_action.luasnip_jump_forward()
+            }),
+            ['<C-b>'] = cmp.mapping({
+                i = cmp_action.luasnip_jump_backward()
+            }),
+            ['<C-u>'] = cmp.mapping({
+                i = cmp.mapping.scroll_docs(-4)
+            }),
+            ['<C-d>'] = cmp.mapping({
+                i = cmp.mapping.scroll_docs(4)
+            })
 
-            -- Ctrl+Space to trigger completion menu
-            ['<leader>h'] = cmp.mapping.complete(),
 
-            -- Navigate between snippet placeholder
-            ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-            ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-            -- Scroll up and down in the completion documentation
-            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-d>'] = cmp.mapping.scroll_docs(4),
-
-
-        }),
+        },
 
         snippet = {
             expand = function(args)
@@ -114,6 +155,23 @@ return function()
         'confirm_done',
         require('nvim-autopairs.completion.cmp').on_confirm_done()
     )
+
+    vim.keymap.set({ "i" }, "<leader>h", function()
+        cmp.complete({
+            config = {
+                sources =
+                    cmp.config.sources({
+                        { name = 'nvim_lsp'},
+                        { name = 'buffer'},
+                        -- { name = 'vsnip' }, -- For vsnip users.
+                        { name = 'luasnip'}, -- For luasnip users.
+                        -- { name = 'snippy' }, -- For snippy users.
+                        -- { name = 'ultisnips' }, -- For ultisnips users.
+                    })
+
+            }
+        })
+    end)
 
     -- Customization for Pmenu
     vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#330C1F", fg = "NONE" })

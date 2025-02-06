@@ -22,7 +22,6 @@ return function()
         signcolumn                      = false, -- Toggle with `:Gitsigns toggle_signs`
         numhl                           = true,  -- Toggle with `:Gitsigns toggle_numhl`
         linehl                          = false, -- Toggle with `:Gitsigns toggle_linehl`
-        show_deleted                    = false,
         word_diff                       = false, -- Toggle with `:Gitsigns toggle_word_diff`
         watch_gitdir                    = {
             follow_files = true
@@ -36,6 +35,7 @@ return function()
             delay = 500,
             ignore_whitespace = true,
             virt_text_priority = 2,
+            use_focus = true,
         },
         current_line_blame_formatter    = " <author>, <author_time:%d-%m-%Y> - <summary>      ",
         current_line_blame_formatter_nc = " <author>      ",
