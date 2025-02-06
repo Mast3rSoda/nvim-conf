@@ -31,10 +31,9 @@ return function()
     vim.keymap.set("n", "<leader>a", function()
         harpoon:list():add()
         local exp = vim.fn.expand("%")
-        local v = harpoon:list():get_by_value(exp)
+        local v, index = harpoon:list():get_by_value(exp)
         if v == nil then return end
-        print("added", exp, "to harpoon at pos",
-            select(2, v))
+        print("added", exp, "to harpoon at pos", index)
     end)
 
     vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
