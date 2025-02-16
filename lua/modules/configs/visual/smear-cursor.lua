@@ -36,7 +36,7 @@ return function()
 
         -- Smear cursor in terminal mode.
         -- If the smear goes to the wrong location when enabled, try increasing `delay_after_key`.
-        smear_terminal_mode = false,
+        smear_terminal_mode = true,
 
         -- Set to `true` if your cursor is a horizontal bar in replace mode.
         horizontal_bar_cursor_replace_mode = true,
@@ -64,7 +64,7 @@ return function()
         delay_event_to_smear = 1, -- milliseconds
 
         -- Delay for `vim.on_key` to avoid redundancy with vim events triggers.
-        delay_after_key = 2, -- milliseconds
+        delay_after_key = 10, -- milliseconds
 
         -- Smear configuration ---------------------------------------------------------
 
@@ -100,7 +100,8 @@ return function()
         color_levels = 256,                        -- Minimum 1, don't set manually if using cterm_cursor_colors
         gamma = 1.8,                               -- For color blending
         max_shade_no_matrix = 1,                 -- 0: more overhangs, 1: more matrices
-        matrix_pixel_threshold = 0.4,              -- 0: all pixels, 1: no pixel
+        -- tbh. the more I test it, the better a lower value looks
+        matrix_pixel_threshold = 0,              -- 0: all pixels, 1: no pixel
         matrix_pixel_threshold_vertical_bar = 0.4, -- 0: all pixels, 1: no pixel
         matrix_pixel_min_factor = 0.2,             -- 0: all pixels, 1: no pixel
         volume_reduction_exponent = 0.2,           -- 0: no reduction, 1: full reduction
@@ -109,6 +110,6 @@ return function()
         max_length_insert_mode = 1,
 
         cursor_color = '#EBC0D4',
-        -- transparent_bg_fallback_color = "#303030",
+        -- transparent_bg_fallback_color = "#AF6688",
     })
 end
