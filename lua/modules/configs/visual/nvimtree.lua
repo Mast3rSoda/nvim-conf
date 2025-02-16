@@ -316,4 +316,8 @@ return function()
     vim.keymap.set("n", "<leader>tn", function()
         api.tree.change_root_to_node(api.tree.get_node_under_cursor())
     end)
+
+    -- who tf thought of putting diagnostics as copy/paste highlights
+    vim.api.nvim_set_hl(0, "NvimTreeCutHl", { sp = "#D4EBC0", underdashed = true })
+    vim.api.nvim_set_hl(0, "NvimTreeCopiedHl", { sp = "#C0D4EB", underdashed = true })
 end

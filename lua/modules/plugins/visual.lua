@@ -43,7 +43,8 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = require("modules.configs.visual.indent-blankline")
+        config = require("modules.configs.visual.indent-blankline"),
+        event = "BufAdd"
     }
 
 }

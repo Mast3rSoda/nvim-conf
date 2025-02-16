@@ -1,7 +1,7 @@
 return function()
     require("ibl").setup({
         enabled = true,
-        debounce = 200,
+        debounce = 100,
         indent = {
             char = "▎",
             highlight = "IblIndent",
