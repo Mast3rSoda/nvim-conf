@@ -87,10 +87,6 @@ return {
         config = require("modules.configs.tools.todo")
 
     },
-    {
-        "sphamba/smear-cursor.nvim",
-        config = require("modules.configs.tools.smear-cursor")
-    }
     -- {
     --     'nvimdev/lspsaga.nvim',
     --     config = function()

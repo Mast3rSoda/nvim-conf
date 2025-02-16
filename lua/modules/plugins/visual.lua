@@ -36,6 +36,14 @@ return {
         "nvim-tree/nvim-web-devicons",
         lazy = true,
         config = require("modules.configs.visual.webdevicons")
+    },
+    {
+        "sphamba/smear-cursor.nvim",
+        config = require("modules.configs.visual.smear-cursor")
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = require("modules.configs.visual.indent-blankline")
     }
 
 }
