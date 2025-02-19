@@ -87,6 +87,13 @@ return {
         config = require("modules.configs.tools.todo")
 
     },
+    {
+        "ggandor/leap.nvim",
+        dependencies = {
+            "tpope/vim-repeat",
+        },
+        config = require("modules.configs.tools.leap")
+    },
     -- {
     --     'nvimdev/lspsaga.nvim',
     --     config = function()
