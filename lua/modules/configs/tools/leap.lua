@@ -1,12 +1,12 @@
 return function()
     -- settings
     local leap = require('leap')
-    leap.opts.case_sensitive = true
+    leap.opts.case_sensitive = false
     leap.opts.equivalent_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
     leap.opts.preview_filter = nil
     leap.opts.max_highlighted_traversal_targets = 10
     leap.opts.substitute_chars = {}
-    leap.opts.safe_labels = "sfgnmut/SFGNMUT?"
+    leap.opts.safe_labels = "sfnmut/SFNMUT?"
     leap.opts.labels = "sfgnjklhodweimbuyvrtaqpcxz/SFGNJKLHODWEIMBUYVRTAQPCXZ?"
 
     leap.opts.special_keys =

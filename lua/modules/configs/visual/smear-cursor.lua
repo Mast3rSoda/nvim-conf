@@ -32,11 +32,11 @@ return function()
         vertical_bar_cursor_insert_mode = true,
 
         -- Smear cursor in replace mode.
-        smear_replace_mode = true,
+        smear_replace_mode = false,
 
         -- Smear cursor in terminal mode.
         -- If the smear goes to the wrong location when enabled, try increasing `delay_after_key`.
-        smear_terminal_mode = true,
+        smear_terminal_mode = false,
 
         -- Set to `true` if your cursor is a horizontal bar in replace mode.
         horizontal_bar_cursor_replace_mode = true,

@@ -22,7 +22,9 @@ return {
         {
             "onsails/lspkind.nvim",
             "saadparwaiz1/cmp_luasnip",
-            'hrsh7th/cmp-nvim-lsp'
+            'hrsh7th/cmp-nvim-lsp',
+            "hrsh7th/cmp-buffer",
+                "hrsh7th/cmp-cmdline",
         },
         config = require("modules.configs.lsp.cmp"),
     },
