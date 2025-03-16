@@ -12,7 +12,7 @@ return function()
         min_vertical_distance_smear = 0,
 
         -- Smear cursor when entering or leaving command line mode
-        smear_to_cmd = true,
+        smear_to_cmd = false,
 
         -- Draw the smear in buffer space instead of screen space when scrolling
         scroll_buffer_space = true,

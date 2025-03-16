@@ -51,5 +51,8 @@ return {
         config = require("modules.configs.visual.vim-illuminate"),
         event = "BufAdd"
     },
-
+    {
+        "karb94/neoscroll.nvim",
+        config = require("modules.configs.visual.neoscroll"),
+    }
 }
